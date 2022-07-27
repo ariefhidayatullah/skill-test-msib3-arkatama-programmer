@@ -26,7 +26,6 @@ class UserController extends Controller
 
     public function tambah(request $request){
 
-        // return explode(" ",$request->nama)[0];
         Usermodel::create([
             'nama' => strtoupper(explode(" ",$request->nama)[0]),
             'umur' => strtoupper(preg_replace("/[^0-9]/","",$request['nama'])). ' TAHUN',
