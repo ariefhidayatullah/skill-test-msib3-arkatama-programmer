@@ -32,6 +32,6 @@ class UserController extends Controller
 	Usermodel::where('id',$id)->delete();
 		
 	// alihkan halaman ke halaman pegawai
-	return redirect('/pegawai');
+	return redirect('/');
 }
 }

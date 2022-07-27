@@ -159,6 +159,18 @@
 										<button type="submit" class="btn btn-primary px-5 radius-30">tambah</button>
 									</div>
                                     </form>
+                                    <form action="{{url('user/tambah')}}" method="post">
+                                        @csrf
+                                        <div class="form-body">
+                                            <div class="form-row">
+                                                {{-- <div class="form-group col-md-6"> --}}
+                                                    <label>Nama</label>
+                                                    <input type="text" name="nama" class="form-control radius-30" />
+                                                {{-- </div> --}}
+                                            </div>
+                                            <button type="submit" class="btn btn-primary px-5 radius-30">tambah</button>
+                                        </div>
+                                        </form>
 								</div>
 							</div>
 						</div>
@@ -166,7 +178,7 @@
 							<div class="card">
                                 <div class="card-body">
                                     <div class="card-title">
-                                        <h4 class="mb-0">DataTable Example</h4>
+                                        <h4 class="mb-0">Data</h4>
                                     </div>
                                     <hr/>
                                     <div class="table-responsive">
@@ -174,8 +186,9 @@
                                             <thead>
                                                 <tr>
                                                     <th>Name</th>
-                                                    <th>umur</th>
-                                                    <th>kota</th>
+                                                    <th>Umur</th>
+                                                    <th>Kota</th>
+                                                    <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -188,6 +201,13 @@
                                                     <td>{{$users->nama}}</td>
                                                     <td>{{$users->umur}}</td>
                                                     <td>{{$users->kota}}</td>
+                                                    <td>
+                                                        <form action="{{ url('user/destroy',$users->id) }}" method="get">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                            </form>
+                                                    </td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>

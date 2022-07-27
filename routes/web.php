@@ -15,5 +15,5 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [UserController::class, 'index']);
+Route::get('/user/destroy/{id}', [UserController::class, 'destroy']);
 Route::post('/user/store', [UserController::class, 'store']);
-Route::get('/pegawai/destroy/{id}', [UserController::class, 'destroy']);
