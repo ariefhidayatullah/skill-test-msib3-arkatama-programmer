@@ -14,24 +14,33 @@ class UserController extends Controller
     }
 
     public function store(request $request){
-        // return explode(" ",$request['umur'])[0];
-        $user = [
+
+        Usermodel::create([
             'nama' => strtoupper($request['nama']),
             'umur' => strtoupper(preg_replace("/[^0-9]/","",$request['umur'])). ' TAHUN',
             'kota' => strtoupper($request['kota'])
-        ];
+        ]);
 
-        Usermodel::create($user);
+        return redirect('/');
+    }
+
+    public function tambah(request $request){
+
+        // return explode(" ",$request->nama)[0];
+        Usermodel::create([
+            'nama' => strtoupper(explode(" ",$request->nama)[0]),
+            'umur' => strtoupper(preg_replace("/[^0-9]/","",$request['nama'])). ' TAHUN',
+            'kota' => strtoupper(explode(" ",$request->nama)[2])
+        ]);
 
         return redirect('/');
     }
 
     public function destroy($id)
-{
-	// menghapus data pegawai berdasarkan id yang dipilih
+    {
+	
 	Usermodel::where('id',$id)->delete();
-		
-	// alihkan halaman ke halaman pegawai
+
 	return redirect('/');
-}
+    }
 }

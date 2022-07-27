@@ -145,30 +145,31 @@
 										<div class="form-row">
 											{{-- <div class="form-group col-md-6"> --}}
 												<label>Nama</label>
-												<input type="text" name="nama" class="form-control radius-30" />
+												<input type="text" name="nama" class="form-control radius-30" required/>
 											{{-- </div> --}}
 										</div>
 										<div class="form-group">
 											<label>Umur</label>
-											<input type="text" name="umur" class="form-control radius-30" />
+											<input type="text" name="umur" class="form-control radius-30" required/>
 										</div>
 										<div class="form-group">
 											<label>Kota</label>
-											<input type="text" name="kota" class="form-control radius-30" />
+											<input type="text" name="kota" class="form-control radius-30" required/>
 										</div>
 										<button type="submit" class="btn btn-primary px-5 radius-30">tambah</button>
 									</div>
                                     </form>
                                     <form action="{{url('user/tambah')}}" method="post">
                                         @csrf
-                                        <div class="form-body">
+                                        <div class="form-body mt-5">
                                             <div class="form-row">
                                                 {{-- <div class="form-group col-md-6"> --}}
-                                                    <label>Nama</label>
-                                                    <input type="text" name="nama" class="form-control radius-30" />
+                                                    <label>Nama umur kota, Contoh :  NAMA[
+                                                        spasi]USIA[spasi]CITY</label>
+                                                    <input type="text" name="nama" class="form-control radius-30" required/>
                                                 {{-- </div> --}}
                                             </div>
-                                            <button type="submit" class="btn btn-primary px-5 radius-30">tambah</button>
+                                            <button type="submit" class="btn btn-primary px-5 radius-30 mt-3">tambah</button>
                                         </div>
                                         </form>
 								</div>
