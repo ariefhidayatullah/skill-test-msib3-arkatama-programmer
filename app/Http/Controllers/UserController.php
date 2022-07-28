@@ -13,23 +13,29 @@ class UserController extends Controller
         return view('user.index', compact('user'));
     }
 
-    public function store(request $request){
-
-        Usermodel::create([
-            'nama' => strtoupper($request['nama']),
-            'umur' => strtoupper(preg_replace("/[^0-9]/","",$request['umur'])). ' TAHUN',
-            'kota' => strtoupper($request['kota'])
-        ]);
-
-        return redirect('/');
-    }
 
     public function tambah(request $request){
+        $ex = explode(preg_replace("/[^0-9]/","",$request->nama),$request->nama)[1];
+        $array = explode(" ", $ex);
+       if (in_array("tahun", $array)) {
+        $kota = explode("tahun", $ex);
+       } 
 
+       if (in_array("th", $array)) {
+        $kota = explode("th", $ex);
+       } 
+
+       if (in_array("thn", $array)) {
+        $kota = explode("thn", $ex);
+       } 
+       
+        
+        $umur = preg_replace("/[^0-9]/","",$request->nama);
+        $nama = 
         Usermodel::create([
-            'nama' => strtoupper(explode(" ",$request->nama)[0]),
-            'umur' => strtoupper(preg_replace("/[^0-9]/","",$request['nama'])). ' TAHUN',
-            'kota' => strtoupper(explode(" ",$request->nama)[2])
+            'nama' => strtoupper(explode(preg_replace("/[^0-9]/","",$request->nama),$request->nama)[0]),
+            'umur' => strtoupper(preg_replace("/[^0-9]/","",$request->nama)). ' TAHUN',
+            'kota' => strtoupper($kota[1])
         ]);
 
         return redirect('/');

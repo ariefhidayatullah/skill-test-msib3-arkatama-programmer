@@ -139,26 +139,6 @@
 										<h4 class="mb-0 text-primary">User</h4>
 									</div>
 									<hr/>
-                                    <form action="{{url('user/store')}}" method="post">
-                                    @csrf
-									<div class="form-body">
-										<div class="form-row">
-											{{-- <div class="form-group col-md-6"> --}}
-												<label>Nama</label>
-												<input type="text" name="nama" class="form-control radius-30" required/>
-											{{-- </div> --}}
-										</div>
-										<div class="form-group">
-											<label>Umur</label>
-											<input type="text" name="umur" class="form-control radius-30" required/>
-										</div>
-										<div class="form-group">
-											<label>Kota</label>
-											<input type="text" name="kota" class="form-control radius-30" required/>
-										</div>
-										<button type="submit" class="btn btn-primary px-5 radius-30">tambah</button>
-									</div>
-                                    </form>
                                     <form action="{{url('user/tambah')}}" method="post">
                                         @csrf
                                         <div class="form-body mt-5">
