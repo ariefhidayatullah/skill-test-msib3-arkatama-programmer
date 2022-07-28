@@ -28,10 +28,6 @@ class UserController extends Controller
        if (in_array("thn", $array)) {
         $kota = explode("thn", $ex);
        } 
-       
-        
-        $umur = preg_replace("/[^0-9]/","",$request->nama);
-        $nama = 
         Usermodel::create([
             'nama' => strtoupper(explode(preg_replace("/[^0-9]/","",$request->nama),$request->nama)[0]),
             'umur' => strtoupper(preg_replace("/[^0-9]/","",$request->nama)). ' TAHUN',
